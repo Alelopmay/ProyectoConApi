@@ -1,0 +1,122 @@
+/* Welcome.css - Estilo profesional y moderno */
+
+/* Fondo con un degradado sutil para mayor profundidad */
+.welcome-container {
+  background: linear-gradient(to right, #1e293b, #334155);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Encabezado */
+.header {
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4e5763;
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.2);
+}
+
+.highlighted-text {
+  color: #38bdf8;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  margin-top: 0.5rem;
+}
+
+/* Contenido Principal */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Tarjeta de descripción */
+.description-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.section-description {
+  color: #e2e8f0;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Botones estilizados */
+.button-container {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn-home, .btn-check-in {
+  background: #38bdf8;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-home:hover, .btn-check-in:hover {
+  background: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Spinner de carga */
+.spinner-container {
+  margin-top: 1.5rem;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  height: 2rem;
+  width: 2rem;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pie de página */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-top: 2rem;
+}

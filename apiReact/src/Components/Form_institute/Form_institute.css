@@ -1,0 +1,89 @@
+/* Fondo general con gradiente suave */
+.container {
+    background: linear-gradient(to bottom right, #83929c, #8993a0, #edf2f7);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #2d3748;
+    font-family: 'Roboto', sans-serif;
+    padding: 2rem;
+}
+
+/* Títulos */
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ecf0f1;
+    margin-bottom: 2rem;
+}
+
+/* Formulario de Crear Instituto */
+form {
+    width: 160vh;
+    max-width: 35rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #34495e;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Añadir márgenes a los campos */
+form label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ecf0f1;
+    display: block;
+    margin-top: 1rem;
+    
+}
+
+/* Estilos para los inputs */
+form input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border: 2px solid #34495e;
+    border-radius: 0.75rem;
+    background-color: #ecf0f1;
+    color: #2d3748;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form input:focus {
+    border-color: #3498db;
+}
+
+/* Botón de crear instituto */
+form button {
+    background-color: #3498db;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1.2rem;
+    width: 100%;
+    margin-top: 2rem;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}
+
+/* Mensaje de éxito o error */
+.text-lg {
+    font-size: 1.2rem;
+    color: #bdc3c7;
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}

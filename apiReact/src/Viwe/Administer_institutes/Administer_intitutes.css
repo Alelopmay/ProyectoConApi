@@ -1,0 +1,159 @@
+/* Fondo global */
+.admin-institutes-container {
+    background: linear-gradient(to bottom right, #83929c, #8993a0, #edf2f7);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #2d3748;
+}
+
+/* Estilos para el encabezado */
+header {
+    width: 100%;
+    background: linear-gradient(to right, #2c3e50, #34495e, #5d6d7e);
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ecf0f1;
+}
+
+header a {
+    background-color: #3498db;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header a:hover {
+    background-color: #2980b9;
+    color: #ecf0f1;
+}
+
+/* Formulario de creación de instituto */
+form {
+    max-width: 40rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #34495e;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ecf0f1;
+    display: block;
+    margin-top: 1rem;
+}
+
+form select, form input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border: 2px solid #34495e;
+    border-radius: 0.75rem;
+    background-color: #ecf0f1;
+    color: #2d3748;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+form select:focus, form input:focus {
+    border-color: #3498db;
+}
+
+/* Botón de crear instituto */
+form button {
+    background-color: #3498db;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1.2rem;
+    width: 100%;
+    margin-top: 2rem;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}
+
+/* Tabla de institutos */
+.institutes-list-container {
+    width: 80%;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #34495e;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+thead {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+tbody {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+tbody tr:hover {
+    background-color: #34495e;
+}
+
+/* Botones de acciones en la lista */
+button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+/* Botón de eliminar */
+button.bg-red-600 {
+    background-color: #e74c3c;
+}
+
+button.bg-red-600:hover {
+    background-color: #c0392b;
+}
+
+/* Mensajes de éxito o error */
+.text-lg {
+    font-size: 1.2rem;
+    color: #bdc3c7;
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}
