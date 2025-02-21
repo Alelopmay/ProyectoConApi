@@ -37,25 +37,6 @@ const CheckIn: React.FC = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const handleCheckIn = async () => {
-        if (!selectedTeacher || !password) {
-            setMessage("Por favor, seleccione un profesor y escriba la contraseña.");
-            return;
-        }
-
-        setIsSubmitting(true);
-        setMessage(null);
-
-        try {
-            const response = await registerCheckin(Number(selectedTeacher), password);
-            setMessage(response.message);
-        } catch (error: any) {
-            setMessage(error.response?.data?.error || "Error al registrar el check-in.");
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
     return (
         <div className="checkin-container">
             <header className="header">
@@ -70,24 +51,11 @@ const CheckIn: React.FC = () => {
 
                     <div className="form-group">
                         <label>Seleccione un profesor:</label>
-                        <select
-                            className="form-input"
-                            value={selectedTeacher}
-                            onChange={(e) => setSelectedTeacher(e.target.value)}
-                            disabled={loading || error !== null || isSubmitting}
-                        >
-                            {loading ? (
-                                <option>Cargando profesores...</option>
-                            ) : error ? (
-                                <option disabled>{error}</option>
-                            ) : (
+                        <select className="form-input" value={selectedTeacher} onChange={(e) => setSelectedTeacher(e.target.value)} disabled={loading || error !== null || isSubmitting}>
+                            {loading ? <option>Cargando profesores...</option> : error ? <option disabled>{error}</option> : (
                                 <>
                                     <option value="">Seleccione un profesor</option>
-                                    {teachers.map((teacher) => (
-                                        <option key={teacher.id} value={teacher.id}>
-                                            {teacher.name}
-                                        </option>
-                                    ))}
+                                    {teachers.map((teacher) => <option key={teacher.id} value={teacher.id}>{teacher.name}</option>)}
                                 </>
                             )}
                         </select>
@@ -95,18 +63,10 @@ const CheckIn: React.FC = () => {
 
                     <div className="form-group">
                         <label>Contraseña:</label>
-                        <input
-                            type="password"
-                            className="form-input"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            disabled={isSubmitting}
-                        />
+                        <input type="password" className="form-input" value={password} onChange={(e) => setPassword(e.target.value)} disabled={isSubmitting} />
                     </div>
 
-                    <button className="checkin-button" onClick={handleCheckIn} disabled={isSubmitting}>
-                        {isSubmitting ? "Procesando..." : "Realizar Check In"}
-                    </button>
+                    <button className="checkin-button" onClick={() => alert("Check-In realizado")}>Realizar Check In</button>
                 </div>
 
                 <div className="clock-container">

@@ -15,40 +15,42 @@ const Home: React.FC = () => {
         };
 
         const intervalId = setInterval(updateClock, 1000);
-        updateClock(); // Actualización inmediata al renderizar
-
+        updateClock();
         return () => clearInterval(intervalId);
     }, []);
 
     return (
         <div className="home-container">
-            {/* Botón para volver al inicio */}
-            <div className="back-button-container">
-                <Link to="/" className="back-button">⬅ Volver al inicio</Link>
-            </div>
+            <header className="home-header">
+                <h1 className="home-title">Bienvenido a <span className="highlight">HorarioDocente</span></h1>
+                <p className="home-subtitle">Administra y gestiona horarios de forma eficiente.</p>
+            </header>
 
-            {/* Sección del Reloj Digital */}
-            <section className="clock-section">
+            <section className="main-content">
+                {/* Sección del Reloj */}
                 <div className="clock-container">
                     <h2 className="clock-title">Reloj Digital</h2>
                     <div className="clock-time">{time}</div>
                 </div>
-            </section>
 
-            {/* Menú de navegación */}
-            <section className="menu-section">
+                {/* Menú de Navegación */}
                 <div className="menu-container">
                     <h2 className="menu-title">Administración</h2>
                     <div className="menu-links">
-                        <Link to="/admin/institutes" className="menu-link">🏫 Administrar Institutos</Link>
-                        <Link to="/admin/teachers" className="menu-link">👨‍🏫 Administrar Profesores</Link>
-                        <Link to="/admin/schedules" className="menu-link">📅 Administrar Horarios</Link>
-                        <Link to="/admin/works" className="menu-link">📋 Administrar Trabajos</Link>
+                        <Link to="/admin/institutes" className="menu-link">🏫 Institutos</Link>
+                        <Link to="/admin/teachers" className="menu-link">👨‍🏫 Profesores</Link>
+                        <Link to="/admin/schedules" className="menu-link">📅 Horarios</Link>
+                        <Link to="/admin/works" className="menu-link">📋 Trabajos</Link>
                     </div>
                 </div>
             </section>
 
-            {/* Pie de página */}
+            {/* Botón de Volver */}
+            <div className="back-button-container">
+                <Link to="/" className="back-button">⬅ Volver al inicio</Link>
+            </div>
+
+            {/* Pie de Página */}
             <footer className="footer">
                 <p>&copy; {new Date().getFullYear()} HorarioDocente. Todos los derechos reservados.</p>
             </footer>

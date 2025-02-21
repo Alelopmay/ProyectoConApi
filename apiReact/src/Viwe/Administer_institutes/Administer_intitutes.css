@@ -1,6 +1,6 @@
 /* Fondo global */
 .admin-institutes-container {
-    background: linear-gradient(to bottom right, #83929c, #8993a0, #edf2f7);
+    background: linear-gradient(to bottom right, #204055, #2e3743, #1a2127);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
