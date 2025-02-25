@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // URL base de la API (ajústala según tu configuración de backend)
-const API_URL = 'http://localhost:8000/api/login'; // Cambia esta URL a la URL correcta de tu API
+const API_URL = 'http://127.0.0.1:8000/api/login'; 
 
 // Función para hacer login del profesor
 export const loginTeacher = async (name: string, password: string) => {

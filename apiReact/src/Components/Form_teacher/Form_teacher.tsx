@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createTeacher } from '../../Services/teacherService';
 
-// Definir un tipo para los datos que incluye 'password_confirmation'
+
 interface CreateTeacherInput {
     name: string;
     category: string;
@@ -16,7 +16,11 @@ const FormTeacher: React.FC = () => {
     const [age, setAge] = useState<number | ''>('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
-
+/**
+ *  función para crear un profesor en la base de datos 
+ * @param event 
+ * @returns 
+ */
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 

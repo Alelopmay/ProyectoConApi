@@ -1,4 +1,4 @@
-// AdministerTeacher.tsx
+
 import React from "react";
 import TeacherForm from "../../Components/Form_teacher/Form_teacher";
 import TeacherList from "../../Components/Teachers_list/Teacher_list";

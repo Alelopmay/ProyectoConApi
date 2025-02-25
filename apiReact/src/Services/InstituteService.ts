@@ -1,4 +1,4 @@
-// services/InstituteService.ts
+
 
 import { Institute } from "../models/Institute";
 

@@ -15,13 +15,13 @@ const AdministerWork: React.FC = () => {
     const [checkins, setCheckins] = useState<Checkin[]>([]);
     const [selectedTeacherId, setSelectedTeacherId] = useState<number | null>(null);
     const [showModal, setShowModal] = useState(false);
-
+// Cargar datos
     useEffect(() => {
         fetchInstitutes().then(setInstitutes);
         fetchTeachers().then(setTeachers);
         fetchWorks().then(setWorks);
     }, []);
-
+// Asignar profesor a instituto 
     const handleAssign = async (e: React.FormEvent) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
@@ -36,7 +36,7 @@ const AdministerWork: React.FC = () => {
             alert("Error al asignar profesor: " + error);
         }
     };
-
+// Cargar los registros de entrada
     const loadCheckins = async (teacherId: number) => {
         try {
             setSelectedTeacherId(teacherId);
@@ -47,7 +47,7 @@ const AdministerWork: React.FC = () => {
             alert("Error al cargar los registros de entrada: " + error);
         }
     };
-
+// Renderizar la vista
     return (
         <div className="container">
             <header>

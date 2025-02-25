@@ -1,7 +1,7 @@
 // FormInstitute.tsx
 import React, { useState } from 'react';
 import { Institute } from '../../models/Institute';
-import { createInstitute } from '../../Services/InstituteService'; // Importar las funciones de los servicios
+import { createInstitute } from '../../Services/InstituteService'; 
 import './Form_institute.css';
 
 const FormInstitute: React.FC = () => {
@@ -10,37 +10,41 @@ const FormInstitute: React.FC = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
 
-    // Crear instituto
+    /**
+     * función para crear el instituto en la base de datos 
+     * @param event 
+     * @returns
+     */
     const handleCreateInstitute = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        console.log("Formulario enviado");  // Log cuando se envía el formulario
+        console.log("Formulario enviado");  
         const newInstitute: Institute = { id: 0, name, address };  // `id` es 0 porque el backend lo genera
-        console.log("Nuevo Instituto:", newInstitute);  // Log de la nueva institución que se va a crear
+        console.log("Nuevo Instituto:", newInstitute);  
 
         setLoading(true);
         setMessage('');
-        console.log("Estado de carga activado");  // Log cuando comienza la carga
+        console.log("Estado de carga activado");  
 
         try {
             console.log("Intentando crear instituto...");
-            const createdInstitute = await createInstitute(newInstitute);
+            const createdInstitute = await createInstitute(newInstitute);// Llamada a la función para crear el instituto
             if (typeof createdInstitute === 'string') {
                 console.error(createdInstitute);
                 setMessage('Hubo un error al intentar crear el instituto');
             } else {
                 setMessage('Instituto creado exitosamente!');
-                console.log("Instituto creado exitosamente!");  // Log cuando la creación es exitosa
+                console.log("Instituto creado exitosamente!");  
             }
         } catch (error) {
-            console.error("Error al crear el instituto:", error);  // Log si ocurre un error
+            console.error("Error al crear el instituto:", error);  
             setMessage('Hubo un error al intentar crear el instituto');
         } finally {
             setLoading(false);
-            console.log("Estado de carga desactivado");  // Log cuando termina la carga
+            console.log("Estado de carga desactivado");  
             setName('');
             setAddress('');
-            console.log("Campos de nombre y dirección reseteados");  // Log cuando se resetan los campos
+            console.log("Campos de nombre y dirección reseteados");  
         }
     };
 
@@ -73,7 +77,7 @@ const FormInstitute: React.FC = () => {
                         value={address}
                         onChange={(e) => {
                             setAddress(e.target.value);
-                            console.log("Nueva dirección:", e.target.value);  // Log para mostrar el cambio de la dirección
+                            console.log("Nueva dirección:", e.target.value);  
                         }}
                         required
                     />

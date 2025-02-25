@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Checkin } from '../models/Checkin'; // Asegúrate de que el modelo esté bien importado
+import { Checkin } from '../models/Checkin'; 
 
 const API_URL = 'http://localhost:8000/api/checkins';
 

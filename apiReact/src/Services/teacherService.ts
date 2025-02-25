@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Teacher } from "../models/Teacher";
 
-const API_URL = 'http://127.0.0.1:8000/api/teachers'; // Ajusta según tu configuración
+const API_URL = 'http://127.0.0.1:8000/api/teachers'; 
 
 // Obtener todos los profesores
 export const getTeachers = async (): Promise<Teacher[]> => {

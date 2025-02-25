@@ -8,14 +8,14 @@ import "./CheckIn.css";
 const CheckIn: React.FC = () => {
     const [teachers, setTeachers] = useState<Teacher[]>([]);
     const [selectedTeacher, setSelectedTeacher] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const [password, setPassword] = useState<string>(""); // Estado para la contraseña
     const [horaActual, setHoraActual] = useState(new Date());
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState<string | null>(null);
     const navigate = useNavigate();
-
+// Cargar los profesores al cargar el componente
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -29,13 +29,39 @@ const CheckIn: React.FC = () => {
         };
         fetchData();
     }, []);
-
+// Actualizar la hora cada segundo
     useEffect(() => {
         const interval = setInterval(() => {
             setHoraActual(new Date());
         }, 1000);
         return () => clearInterval(interval);
     }, []);
+// Manejar el Check-In
+    const handleCheckIn = async () => {
+        if (!selectedTeacher) {
+            setMessage("Por favor, seleccione un profesor.");
+            return;
+        }
+
+        if (!password) {
+            setMessage("Por favor, ingrese su contraseña.");
+            return;
+        }
+
+        setIsSubmitting(true);
+        setMessage(null);
+
+        try {
+            await registerCheckin(parseInt(selectedTeacher), password); // Se envía la contraseña ingresada
+            setMessage("✅ Check-In realizado con éxito.");
+            setSelectedTeacher(""); // Limpiar selección del profesor
+            setPassword(""); // Limpiar contraseña
+        } catch (error) {
+            setMessage("❌ Error al realizar el Check-In. Intente de nuevo.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="checkin-container">
@@ -63,10 +89,18 @@ const CheckIn: React.FC = () => {
 
                     <div className="form-group">
                         <label>Contraseña:</label>
-                        <input type="password" className="form-input" value={password} onChange={(e) => setPassword(e.target.value)} disabled={isSubmitting} />
+                        <input
+                            type="password"
+                            className="form-input"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            disabled={isSubmitting}
+                        />
                     </div>
 
-                    <button className="checkin-button" onClick={() => alert("Check-In realizado")}>Realizar Check In</button>
+                    <button className="checkin-button" onClick={handleCheckIn} disabled={isSubmitting}>
+                        {isSubmitting ? "Procesando..." : "Realizar Check In"}
+                    </button>
                 </div>
 
                 <div className="clock-container">

@@ -1,4 +1,4 @@
-// AdminInstitutes.tsx
+
 import React from 'react';
 import FormInstitute from '../../Components/Form_institute/Form_institute';
 import './Administer_intitutes.css';
