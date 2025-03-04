@@ -3,7 +3,7 @@ import { Institute } from "../models/Institute";
 import { Teacher } from "../models/Teacher";
 import { Work } from "../models/Work";
 
-const API_BASE_URL = "http://localhost:8000/api"; 
+const API_BASE_URL = "http://alelopmay:8000/api"; 
 
 // Obtener todos los institutos
 export const fetchInstitutes = async (): Promise<Institute[]> => {

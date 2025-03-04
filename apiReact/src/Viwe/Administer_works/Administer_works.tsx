@@ -15,13 +15,23 @@ const AdministerWork: React.FC = () => {
     const [checkins, setCheckins] = useState<Checkin[]>([]);
     const [selectedTeacherId, setSelectedTeacherId] = useState<number | null>(null);
     const [showModal, setShowModal] = useState(false);
-// Cargar datos
+
+    // Cargar datos al montar el componente
     useEffect(() => {
-        fetchInstitutes().then(setInstitutes);
-        fetchTeachers().then(setTeachers);
-        fetchWorks().then(setWorks);
+        const loadData = async () => {
+            try {
+                setInstitutes(await fetchInstitutes());
+                setTeachers(await fetchTeachers());
+                setWorks(await fetchWorks());
+            } catch (error) {
+                console.error("Error al cargar datos:", error);
+                alert("Hubo un error al cargar los datos.");
+            }
+        };
+        loadData();
     }, []);
-// Asignar profesor a instituto 
+
+    // Asignar profesor a instituto
     const handleAssign = async (e: React.FormEvent) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
@@ -36,7 +46,8 @@ const AdministerWork: React.FC = () => {
             alert("Error al asignar profesor: " + error);
         }
     };
-// Cargar los registros de entrada
+
+    // Cargar los registros de entrada de un profesor
     const loadCheckins = async (teacherId: number) => {
         try {
             setSelectedTeacherId(teacherId);
@@ -47,7 +58,7 @@ const AdministerWork: React.FC = () => {
             alert("Error al cargar los registros de entrada: " + error);
         }
     };
-// Renderizar la vista
+
     return (
         <div className="container">
             <header>
@@ -95,9 +106,9 @@ const AdministerWork: React.FC = () => {
             {showModal && (
                 <div className="modal-overlay">
                     <div className="modal">
-                        <h2>Registros de Entrada</h2>
+                        <h2>Registros de Entrada {selectedTeacherId ? `del profesor ID: ${selectedTeacherId}` : ""}</h2>
                         <ul>
-                            {checkins.length ? checkins.map((c, idx) => (
+                            {checkins.length > 0 ? checkins.map((c, idx) => (
                                 <li key={idx}>Entrada: {c.entry_date} - Salida: {c.exit_date || "No registrada"}</li>
                             )) : <li>No hay registros.</li>}
                         </ul>

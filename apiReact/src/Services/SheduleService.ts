@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Schedule } from "../models/Shedule";
 
-const API_URL = "http://127.0.0.1:8000/api/schedules";
+const API_URL = "http://alelopmay:8000/api/schedules";
 
 // Crear un nuevo horario
 export const createSchedule = async (schedule: any): Promise<void> => {

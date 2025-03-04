@@ -2,7 +2,7 @@
 
 import { Institute } from "../models/Institute";
 
-const API_URL = 'http://127.0.0.1:8000/api/institutes';
+const API_URL = 'http://alelopmay:8000/api/institutes';
 
 // Crear instituto
 export const createInstitute = async (institute: Omit<Institute, 'id'>): Promise<Institute | string> => {
