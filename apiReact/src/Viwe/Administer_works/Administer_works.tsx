@@ -13,7 +13,6 @@ const AdministerWork: React.FC = () => {
     const [teachers, setTeachers] = useState<Teacher[]>([]);
     const [works, setWorks] = useState<Work[]>([]);
     const [checkins, setCheckins] = useState<Checkin[]>([]);
-    const [selectedTeacher, setSelectedTeacher] = useState<Teacher | null>(null);
     const [showModal, setShowModal] = useState(false);
 
     // Cargar datos al montar el componente
@@ -107,7 +106,7 @@ const AdministerWork: React.FC = () => {
             {showModal && (
                 <div className="modal-overlay">
                     <div className="modal">
-                        <h2>Registros de Entrada {selectedTeacher ? `de ${selectedTeacher.name}` : ""}</h2>
+                        <h2>Registros de Entrada {setTeachers ? `de ${setTeachers.name}` : ""}</h2>
                         <ul>
                             {checkins.length > 0 ? checkins.map((c, idx) => (
                                 <li key={idx}>Entrada: {c.entry_date} - Salida: {c.exit_date || "No registrada"}</li>
@@ -122,3 +121,7 @@ const AdministerWork: React.FC = () => {
 };
 
 export default AdministerWork;
+function setSelectedTeacher(_teacher: Teacher | null) {
+    throw new Error("Function not implemented.");
+}
+
