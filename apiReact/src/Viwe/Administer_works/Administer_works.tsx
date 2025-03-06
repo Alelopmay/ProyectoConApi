@@ -13,7 +13,7 @@ const AdministerWork: React.FC = () => {
     const [teachers, setTeachers] = useState<Teacher[]>([]);
     const [works, setWorks] = useState<Work[]>([]);
     const [checkins, setCheckins] = useState<Checkin[]>([]);
-    const [selectedTeacherId, setSelectedTeacherId] = useState<number | null>(null);
+    const [selectedTeacher, setSelectedTeacher] = useState<Teacher | null>(null);
     const [showModal, setShowModal] = useState(false);
 
     // Cargar datos al montar el componente
@@ -50,7 +50,8 @@ const AdministerWork: React.FC = () => {
     // Cargar los registros de entrada de un profesor
     const loadCheckins = async (teacherId: number) => {
         try {
-            setSelectedTeacherId(teacherId);
+            const teacher = teachers.find(t => t.id === teacherId) || null;
+            setSelectedTeacher(teacher);
             const data = await fetchCheckins(teacherId);
             setCheckins(data);
             setShowModal(true);
@@ -106,7 +107,7 @@ const AdministerWork: React.FC = () => {
             {showModal && (
                 <div className="modal-overlay">
                     <div className="modal">
-                        <h2>Registros de Entrada {selectedTeacherId ? `del profesor ID: ${selectedTeacherId}` : ""}</h2>
+                        <h2>Registros de Entrada {selectedTeacher ? `de ${selectedTeacher.name}` : ""}</h2>
                         <ul>
                             {checkins.length > 0 ? checkins.map((c, idx) => (
                                 <li key={idx}>Entrada: {c.entry_date} - Salida: {c.exit_date || "No registrada"}</li>
