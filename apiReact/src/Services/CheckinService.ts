@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Checkin } from '../models/Checkin'; 
 
-const API_URL = 'http://alelopmay:8000/api/checkins';
+const API_URL = 'http://docalelopmay.duckdns.org:8000/api/checkins';
 
 // Obtener todos los check-ins
 export const fetchCheckins = async (): Promise<Checkin[]> => {
