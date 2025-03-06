@@ -7,7 +7,7 @@ import { fetchTeachers } from "../../Services/teacherService";
 import { fetchInstitutes, fetchWorks, assignTeacherToInstitute, fetchCheckins } from "../../Services/WorkService";
 import './Administer_works.css';
 import { FaArrowLeft, FaBuilding, FaChalkboardTeacher, FaClipboardList } from "react-icons/fa";
-
+//deded
 const AdministerWork: React.FC = () => {
     const [institutes, setInstitutes] = useState<Institute[]>([]);
     const [teachers, setTeachers] = useState<Teacher[]>([]);
